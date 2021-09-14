@@ -1,18 +1,20 @@
 const items = require('../items');
 
+const Item = {
+  type: 'object',
+  properties: {
+    id: { type: 'string' },
+    name: { type: 'string' },
+  }
+}
+
 // Options for get all items
 const getItemsOpts = {
   schema: {
     response: {
       200: {
         type: 'array',
-        items: {
-          type: 'object',
-          properties: {
-            id: { type: 'string' },
-            name: { type: 'string' },
-          },
-        }
+        items: Item
       }
     }
   }
@@ -22,13 +24,7 @@ const getItemsOpts = {
 const getItemByIdOpts = {
   schema: {
     response: {
-      200: {
-        type: 'object',
-        properties: {
-          id: { type: 'string' },
-          name: { type: 'string' },
-        }
-      }
+      200: Item
     }
   }
 };
