@@ -1,8 +1,10 @@
 const fastify = require('fastify')({ logger: true });
 const PORT = 5000;
 
+const items = require('./items');
+
 fastify.get('/items', async (req, res) => {
-  res.send({ test: 'Hello' });
+  res.send(items);
 });
 
 const start = async () => {
