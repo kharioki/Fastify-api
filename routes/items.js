@@ -35,6 +35,13 @@ const getItemByIdOpts = {
 // Options for creating an item
 const postItemOpts = {
   schema: {
+    body: {
+      type: 'object',
+      required: ['name'],
+      properties: {
+        name: { type: 'string' }
+      }
+    },
     response: {
       201: Item
     }
