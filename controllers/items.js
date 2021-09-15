@@ -21,8 +21,15 @@ const createItem = (req, res) => {
   res.code(201).send(item);
 };
 
+const deleteItem = (req, res) => {
+  const { id } = req.params;
+  items = items.filter(item => item.id !== id);
+  res.send({ message: `Item ${id} has been removed` });
+};
+
 module.exports = {
   getItems,
   getItem,
   createItem,
+  deleteItem,
 };
